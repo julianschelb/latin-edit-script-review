@@ -23,7 +23,7 @@ The selected pair is in the URL (`#p0006`), so a link opens the same pair.
 | Path | What it holds |
 | --- | --- |
 | `index.html`, `src/` | the app: `src/App.jsx`, `src/components/`, `src/data.js` (loads the input), `src/filters.js`, `src/labels.js` |
-| `public/data/` | the input, `gold_2026-09-24.populated.records.jsonl`: one pair per line in the paper's storage format |
+| `public/data/` | the input, `gold_2026-10-12.populated.records.jsonl`: one pair per line in the paper's storage format |
 | `corrections/` | for corrections files sent back later |
 | `.github/workflows/` | build and deploy to GitHub Pages |
 
@@ -36,7 +36,10 @@ npm run dev        # http://localhost:5173/latin-edit-script-review/
 
 ## Data
 
-`public/data/gold_2026-09-24.populated.records.jsonl` is copied from the paper repository
-(`notebooks/80_Edit_Script_Generation/data/gold_full/`, written by `tools/populate_gold.py`): the frozen gold labels
+`public/data/gold_2026-10-12.populated.records.jsonl` is copied from the paper repository
+(`notebooks/80_Edit_Script_Generation/data/gold_full/`, written by `tools/populate_gold.py` and relabelled into the
+paper's operations of 2026-10-09 by `tools/relabel_gold.py`: citing formulas MARK, the derivational relative DERIV,
+unlinked words INS/NEW and DEL/OUT inside and outside the reused stretch, and the patterns QUOTE, REORDER and
+DISPERSE recorded per pair; `src/unlinked.js` derives the unlinked labels on the page with the same rule): the frozen gold labels
 with every storage-format field filled, and the predictions of the stretch-and-link pointer with the COPY gate, each
 pair from the fold in which it was test data. The page shows the predictions only.
